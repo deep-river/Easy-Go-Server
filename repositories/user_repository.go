@@ -13,3 +13,10 @@ func CreateUser(dto dto.UserDto) error {
 	err := models.DB.Create(&user).Error
 	return err
 }
+
+
+func GetUserByUsername(username string) models.User {
+	user := models.User{} 
+	models.DB.Find(&user, models.DB.Where("username = ?", username)) 
+	return user 
+}
