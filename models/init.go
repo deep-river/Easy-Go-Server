@@ -31,4 +31,14 @@ func Init() {
 	// set up conn pool 
 	DB.DB().SetMaxIdleConns(10) 
 	DB.DB().SetMaxOpenConns(100)
+
+	migrate()
+}
+
+func migrate() {
+	DB.AutoMigrate(&User{})
+}
+
+func Close() {
+	defer DB.Close()
 }

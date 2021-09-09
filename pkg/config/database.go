@@ -21,7 +21,7 @@ func (s *mysql) Load(path string) *mysql {
 	var err error 
 	// check if config file exists 
 	exists, err := helper.PathExists(path) 
-	if !exists || err != nil {
+	if !exists {
 		return s 
 	}
 	s.source, err = ini.Load(path) 
@@ -31,7 +31,7 @@ func (s *mysql) Load(path string) *mysql {
 	return s 
 }
 
-func (s *mysql)Init() *mysql {
+func (s *mysql) Init() *mysql {
 	// check if config loaded successfully 
 	if s.source == nil {
 		return s 
