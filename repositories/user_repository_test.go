@@ -15,7 +15,7 @@ const (
 )
 
 func init() {
-	config.Mysql.Load("../../conf/database.ini").Init()
+	config.Mysql.Load("../conf/database.ini").Init()
 	models.Init()
 }
 
